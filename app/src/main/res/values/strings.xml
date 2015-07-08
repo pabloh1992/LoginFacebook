@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LoginFacebook</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_id">393836180808902</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="bienvenida">ParchAPP</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_mostrar_lugares">MostrarLugares</string>
+
+</resources>
