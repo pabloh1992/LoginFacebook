@@ -8,6 +8,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
+ //   public static String URL_REGISTER = "http://apps.zoomcreativo.co/users/db_register.php";
+ public static String URL_REGISTER = "http://parchapp.esy.es/db_register.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

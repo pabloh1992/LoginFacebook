@@ -11,24 +11,37 @@
         android:id="@+id/text_details"
         android:gravity="center"
         android:text="@string/bienvenida"
-        android:textSize="20dp"
+        android:textSize="60dp"
         android:layout_above="@+id/login_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+
+        />
+
+    <ImageView
+        android:layout_width="231dp"
+        android:layout_height="238dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/iniciar"
         android:id="@+id/start_button"
+
         android:layout_below="@+id/login_button"
         android:layout_centerHorizontal="true"
-        android:visibility="gone"/>
+        android:visibility="gone"
+
+        />
 
 
 </LinearLayout>
