@@ -101,7 +101,7 @@ public class RegisterActivity extends Activity {
                     @Override
                     public void onResponse(JSONObject response){
                         // here you parse the json response
-                        Log.d("", response.toString());
+          //              Log.d("", response.toString());
                         // failed to create product
                         hideDialog();
                         try {
