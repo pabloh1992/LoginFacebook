@@ -65,8 +65,6 @@ public class MostrarLugares extends Activity {
                         break;
                     case 1 :
                     //    Toast.makeText(getApplicationContext(), "Bares", Toast.LENGTH_SHORT).show();
-                        Intent j = new Intent(getApplicationContext(), RegisterActivity.class);
-                        startActivity(j);
                         break;
                     case 2 :
                    //     Toast.makeText(getApplicationContext(), "Cafes", Toast.LENGTH_SHORT).show();

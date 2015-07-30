@@ -9,49 +9,69 @@
         android:layout_height="fill_parent"
         android:text="Agregar Restaurante"
         android:textSize="30dp"
-        android:layout_weight="1"/>
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:id="@+id/txv"/>
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:id="@+id/txv2"/>
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:hint="Ingresar nombre del restaurante"
-        android:id="@+id/ednum"/>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:text="enviar"
-        android:id="@+id/btnenv"
-        />
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:text="Tomar Foto"
-        android:id="@+id/btncam"
-        />
+        android:layout_weight="1.5"/>
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1"
+        android:layout_weight="0.7"
         android:id="@+id/imageView1"/>
-    <FrameLayout
-        android:id="@+id/container"
-        tools:context="com.pablohenao.loginfacebook.restaurantes"
-        tools:ignore="MergeRootFrame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
-        />
-</LinearLayout>
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.5"
+            android:src="@drawable/logo"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:hint="nombre del restaurante"
+                android:id="@+id/edname"/>
 
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:hint="Descripción"
+                android:id="@+id/eddesc"/>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text="Calificación"
+                    android:textSize="20dp"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/spinrate">
+                </Spinner>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Agregar"
+                android:id="@+id/btncam"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
