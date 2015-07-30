@@ -60,6 +60,10 @@
             android:name=".Register"
             android:label="@string/title_activity_register" >
         </activity>
+        <activity
+            android:name=".MyActivity"
+            android:label="@string/title_activity_my" >
+        </activity>
     </application>
 
 </manifest><!--
