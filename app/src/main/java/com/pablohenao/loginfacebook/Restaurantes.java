@@ -192,7 +192,7 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Restaurantes.this);
-            pDialog.setMessage("Creating User...");
+            pDialog.setMessage("Agregando un nuevo restaurante...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
@@ -212,6 +212,13 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
                 List params = new ArrayList();
                 params.add(new BasicNameValuePair("nombre", restaurante));
                 params.add(new BasicNameValuePair("descripcion", descrip));
+                params.add(new BasicNameValuePair("imagen", name));
+                params.add(new BasicNameValuePair("latitud", slatitud));
+                params.add(new BasicNameValuePair("longitud", slongitud));
+                params.add(new BasicNameValuePair("calificacion", rate));
+          //      params.add(new BasicNameValuePair("bytes_imagen", encodedString));
+                params.add(new BasicNameValuePair("bytes_imagen", "bytes malvados"));
+
 
                 Log.d("request!", "starting");
 
