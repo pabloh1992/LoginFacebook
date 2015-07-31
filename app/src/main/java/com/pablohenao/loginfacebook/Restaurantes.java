@@ -216,8 +216,8 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
                 params.add(new BasicNameValuePair("latitud", slatitud));
                 params.add(new BasicNameValuePair("longitud", slongitud));
                 params.add(new BasicNameValuePair("calificacion", rate));
-                params.add(new BasicNameValuePair("bytes_imagen", encodedString));
-          //      params.add(new BasicNameValuePair("bytes_imagen", "bytes malvados"));
+          //      params.add(new BasicNameValuePair("bytes_imagen", encodedString));
+                params.add(new BasicNameValuePair("bytes_imagen", "bytes malvados"));
 
 
                 Log.d("request!", "starting");
@@ -425,7 +425,7 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
             paramsfoto.put("nota",rate);
             // Trigger Image upload
             triggerImageUpload(paramsfoto);
-            new CreateUser().execute();
+      //      new CreateUser().execute();
             pDialog.dismiss();
         }
     }
@@ -433,7 +433,7 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
     public void triggerImageUpload(Map<String, String> paramsfoto) {
         makeHTTPCall(paramsfoto);
     }
-    public static String URLf = "http://parchapp.esy.es/up.php";
+    public static String URLf = "http://parchapp.esy.es/cas/intento.php";
     public void makeHTTPCall(Map<String, String> paramsfoto) {
         final JSONObject Jason=new JSONObject(paramsfoto);
 
