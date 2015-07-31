@@ -216,8 +216,8 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
                 params.add(new BasicNameValuePair("latitud", slatitud));
                 params.add(new BasicNameValuePair("longitud", slongitud));
                 params.add(new BasicNameValuePair("calificacion", rate));
-          //      params.add(new BasicNameValuePair("bytes_imagen", encodedString));
-                params.add(new BasicNameValuePair("bytes_imagen", "bytes malvados"));
+                params.add(new BasicNameValuePair("bytes_imagen", encodedString));
+          //      params.add(new BasicNameValuePair("bytes_imagen", "bytes malvados"));
 
 
                 Log.d("request!", "starting");
