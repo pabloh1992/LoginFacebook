@@ -115,8 +115,8 @@ public class MainFragment extends Fragment {
         starButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent actschedule = new Intent(getActivity().getBaseContext(),MostrarLugares.class);
-                startActivity(actschedule);
+                Intent inicio = new Intent(getActivity().getBaseContext(),MostrarLugares.class);
+                startActivity(inicio);
             }
         });
     }

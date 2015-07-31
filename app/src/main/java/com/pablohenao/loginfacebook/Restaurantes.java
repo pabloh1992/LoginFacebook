@@ -163,25 +163,31 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
         if (v.getId()==R.id.btncam){
             EditText edname = (EditText) findViewById(R.id.edname);  // user
             EditText eddesc = (EditText) findViewById(R.id.eddesc);  // pass
-            currentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
             restaurante = edname.getText().toString();
             descrip = eddesc.getText().toString();
-            double latitud = currentLocation.getLatitude();
-            double longitud = currentLocation.getLongitude();
-            slatitud = String.valueOf(latitud);
-            slongitud = String.valueOf(longitud);
-            aleatorio = new Double(Math.random() * 100).intValue();
 
+            if(restaurante.isEmpty()){
+                edname.setError("Vacío");
+            }
+            else if (descrip.isEmpty()){
+                eddesc.setError("Vacío");
+            }
+            else {
 
-     //       new CreateUser().execute();
-
-
-            foto = Environment.getExternalStorageDirectory() + "/imagen"+ aleatorio +".png";
-            name = "/imagen"+ aleatorio +".png";
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            Uri output = Uri.fromFile(new File(foto));
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
-            startActivityForResult(intent, TAKE_PICTURE); // 1 para la camara, 2 para la galeria
+                currentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                double latitud = currentLocation.getLatitude();
+                double longitud = currentLocation.getLongitude();
+                slatitud = String.valueOf(latitud);
+                slongitud = String.valueOf(longitud);
+                aleatorio = new Double(Math.random() * 100).intValue();
+                foto = Environment.getExternalStorageDirectory() + "/imagen" + aleatorio + ".png";
+                name = "/imagen" + aleatorio + ".png";
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Uri output = Uri.fromFile(new File(foto));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
+                startActivityForResult(intent, TAKE_PICTURE); // 1 para la camara, 2 para la galeria
+            }
         }
     }
 
@@ -423,6 +429,7 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
             paramsfoto.put("nombrest",restaurante);
             paramsfoto.put("descrip",descrip);
             paramsfoto.put("nota",rate);
+            paramsfoto.put("personas","1");
             // Trigger Image upload
             triggerImageUpload(paramsfoto);
       //      new CreateUser().execute();
@@ -433,7 +440,7 @@ public class Restaurantes extends ActionBarActivity implements View.OnClickListe
     public void triggerImageUpload(Map<String, String> paramsfoto) {
         makeHTTPCall(paramsfoto);
     }
-    public static String URLf = "http://parchapp.esy.es/cas/intento.php";
+    public static String URLf = "http://parchapp.esy.es/intento.php";
     public void makeHTTPCall(Map<String, String> paramsfoto) {
         final JSONObject Jason=new JSONObject(paramsfoto);
 

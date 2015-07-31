@@ -1,11 +1,15 @@
 package com.pablohenao.loginfacebook;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -21,6 +25,8 @@ import java.util.List;
 
 public class MyActivity extends ActionBarActivity {
 
+    private Button agregarbtn;
+
     // Progress Dialog
     private ProgressDialog pDialog;
 
@@ -31,14 +37,14 @@ public class MyActivity extends ActionBarActivity {
 
 
     // url to get all products list
-    private static String url_all_empresas = "http://parchapp.esy.es/cas/get_all_users.php";
+    private static String url_all_empresas = "http://parchapp.esy.es/get_all_restaurantes.php";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
-    private static final String TAG_PRODUCTS = "usuarios";
-    private static final String TAG_ID = "id";
-    private static final String TAG_NOMBRE = "username";
-    private static final String TAG_PASSWORD = "password";
+    private static final String TAG_PRODUCTS = "restaurantes";
+  //  private static final String TAG_ID = "id";
+    private static final String TAG_NOMBRE = "nombre";
+    private static final String TAG_PASSWORD = "descripcion";
 
     // products JSONArray
     JSONArray products = null;
@@ -56,11 +62,24 @@ public class MyActivity extends ActionBarActivity {
         // Cargar los productos en el Background Thread
         new LoadAllProducts().execute();
         lista = (ListView) findViewById(R.id.listAllProducts);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+  //      agregarbtn = (Button) findViewById(R.id.btnagregar);
+  /*      agregarbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ii = new Intent(getApplicationContext(), Restaurantes.class);
+                startActivity(ii);
+            }
+        });
+*/
     }//fin onCreate
+/*
+    public void Agregar (View view) {
+        Intent intent = new Intent(getApplicationContext(), Restaurantes.class);
+        startActivity(intent);
+    } */
 
 
     class LoadAllProducts extends AsyncTask<String, String, String> {
@@ -72,7 +91,7 @@ public class MyActivity extends ActionBarActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(MyActivity.this);
-            pDialog.setMessage("Cargando usuarios. Por favor espere...");
+            pDialog.setMessage("Cargando restaurantes. Por favor espere...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -105,7 +124,7 @@ public class MyActivity extends ActionBarActivity {
                         JSONObject c = products.getJSONObject(i);
 
                         // Storing each json item in variable
-                        String id = c.getString(TAG_ID);
+                //        String id = c.getString(TAG_ID);
                         String name = c.getString(TAG_NOMBRE);
                         String password = c.getString(TAG_PASSWORD);
 
@@ -113,9 +132,9 @@ public class MyActivity extends ActionBarActivity {
                         HashMap map = new HashMap();
 
                         // adding each child node to HashMap key => value
-                        map.put(TAG_ID, id);
+                 //       map.put(TAG_ID, id);
                         map.put(TAG_NOMBRE, name);
-       //                 map.put(TAG_PASSWORD, password);
+                        map.put(TAG_PASSWORD, password);
 
                         empresaList.add(map);
                     }
@@ -143,18 +162,36 @@ public class MyActivity extends ActionBarActivity {
                             empresaList,
                             R.layout.single_post,
                             new String[] {
-                                    TAG_ID,
+                   //                 TAG_ID,
                                     TAG_NOMBRE,
                                     TAG_PASSWORD,
                             },
                             new int[] {
-                                    R.id.single_post_tv_id,
+                 //                   R.id.single_post_tv_id,
                                     R.id.single_post_tv_nombre,
                                     R.id.single_post_tv_password,
                             });
                     // updating listview
                     //setListAdapter(adapter);
                     lista.setAdapter(adapter);
+
+                    lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView adapterView, View view, int posicion, long l) {
+                            //Toast.makeText(getApplicationContext(), "posicion " + (i + 1) + personas[i], Toast.LENGTH_SHORT).show();
+
+
+
+                            if(posicion != 100) {
+                                //code specific to first list item
+                                Intent ii = new Intent(getApplicationContext(), Register.class);
+                                startActivity(ii);
+                            }
+
+
+                        }
+                    });
+
                 }
             });
         }

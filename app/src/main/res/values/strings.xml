@@ -12,7 +12,7 @@
     <string name="title_activity_list_view_adapter_lugares">ListViewAdapterLugares</string>
     <string name="title_activity_restaurantes">Restaurantes</string>
     <string name="title_activity_register">Registro</string>
-    <string name="title_activity_my">MyActivity</string>
+    <string name="title_activity_my">Restaurantes</string>
 
     <string-array name="num_array">
         <item>1</item>
